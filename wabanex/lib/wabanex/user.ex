@@ -6,12 +6,16 @@ defmodule Wabanex.User do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  @fields [:email, :password, :name]
+  @fields [:email, :password, :name, :weight, :height, :fat_index, :muscle_index]
 
   schema "users" do
     field :email, :string
     field :name, :string
     field :password, :string
+    field :weight, :float
+    field :height, :float
+    field :fat_index, :string
+    field :muscle_index, :string
 
     has_many :trainings, Training
 

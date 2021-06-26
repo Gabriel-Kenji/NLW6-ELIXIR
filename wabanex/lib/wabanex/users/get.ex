@@ -1,6 +1,6 @@
 defmodule Wabanex.Users.Get do
   import Ecto.Query
-
+  
   alias Ecto.UUID
   alias Wabanex.{Repo, User, Training}
 
