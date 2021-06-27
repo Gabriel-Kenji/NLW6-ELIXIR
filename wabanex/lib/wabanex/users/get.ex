@@ -1,6 +1,6 @@
 defmodule Wabanex.Users.Get do
   import Ecto.Query
-  
+
   alias Ecto.UUID
   alias Wabanex.{Repo, User, Training}
 
@@ -27,4 +27,5 @@ defmodule Wabanex.Users.Get do
 
     Repo.preload(user, trainings: {first(query, :inserted_at), :exercises})
   end
+
 end

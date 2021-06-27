@@ -24,4 +24,9 @@ defmodule WabanexWeb.Schema.Types.User do
     field :fat_index, non_null(:string), description: "User fat index"
     field :muscle_index, non_null(:string), description: "User muscle index"
   end
+
+  input_object :delete_user do
+    field :id, non_null(:uuid4)
+  end
+
 end

@@ -10,6 +10,7 @@ defmodule WabanexWeb.Schema.Types.Root do
   import_types Types.Custom.UUID4
   import_types Types.User
   import_types Types.Training
+  import_types Types.DeleteUser
 
   object :root_query do
     field :get_user, type: :user do
@@ -31,6 +32,13 @@ defmodule WabanexWeb.Schema.Types.Root do
       arg :input, non_null(:create_training_input)
 
       resolve &TrainingResolver.create/2
+      middleware TranslateErrors
+    end
+
+    field :delete_user, type: :user do
+      arg :id, non_null(:uuid4)
+
+      resolve &UserResolver.delete/2
       middleware TranslateErrors
     end
   end
